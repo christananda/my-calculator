@@ -46,4 +46,4 @@ class TestCLIIntegration:
         result = self.run_cli("subtract", "5")
         assert result.returncode == 1
         # CLI prints a generic unexpected error message for this case
-        assert result.stdout.strip().startswith("Unexpected error:")
+        assert result.stdout.strip().startswith("Error: Second operand required for subtraction")
