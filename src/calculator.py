@@ -24,6 +24,11 @@ def divide(a, b):
     return a / b
 
 
+def square_root(a):
+    """Calculate square root of a"""
+    return a**0.5
+
+
 def multiply(a, b):
     """Multiply two numbers with input validation and logging."""
     if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
@@ -48,7 +53,6 @@ def divide(a, b):
     return result
 
 
-# TODO: Students will add multiply, divide, power, sqrt functions
 def power(a, b):
     """Raise a to the power of b"""
     return a**b
