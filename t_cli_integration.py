@@ -1,0 +1,54 @@
+[1mdiff --git a/src/CLI.PY b/src/CLI.PY[m
+[1mindex f24f0f2..925bc45 100644[m
+[1m--- a/src/CLI.PY[m
+[1m+++ b/src/CLI.PY[m
+[36m@@ -2,32 +2,33 @@[m
+ Command Line Interface for Calculator[m
+ Example: python src/cli.py add 5 3[m
+ """[m
+[32m+[m
+ import sys[m
+ import click[m
+ from calculator import add, subtract, multiply, divide, power, square_root[m
+ [m
+ [m
+ @click.command()[m
+[31m-@click.argument('operation')[m
+[31m-@click.argument('num1', type=float)[m
+[31m-@click.argument('num2', type=float, required=False)[m
+[32m+[m[32m@click.argument("operation")[m
+[32m+[m[32m@click.argument("num1", type=float)[m
+[32m+[m[32m@click.argument("num2", type=float, required=False)[m
+ def calculate(operation, num1, num2=None):[m
+     """Simple calculator CLI"""[m
+ [m
+     try:[m
+[31m-        if operation == 'add':[m
+[32m+[m[32m        if operation == "add":[m
+             result = add(num1, num2)[m
+[31m-        elif operation == 'subtract':[m
+[32m+[m[32m        elif operation == "subtract":[m
+             if num2 is None:[m
+                 raise ValueError("Second operand required for subtraction")[m
+             result = subtract(num1, num2)[m
+[31m-        elif operation == 'multiply':[m
+[32m+[m[32m        elif operation == "multiply":[m
+             result = multiply(num1, num2)[m
+[31m-        elif operation == 'divide':[m
+[32m+[m[32m        elif operation == "divide":[m
+             result = divide(num1, num2)[m
+[31m-        elif operation == 'power':[m
+[32m+[m[32m        elif operation == "power":[m
+             result = power(num1, num2)[m
+[31m-        elif operation == 'sqrt':[m
+[32m+[m[32m        elif operation == "sqrt":[m
+             result = square_root(num1)[m
+         else:[m
+             click.echo(f"Unknown operation: {operation}")[m
+[36m@@ -47,5 +48,5 @@[m [mdef calculate(operation, num1, num2=None):[m
+         sys.exit(1)[m
+ [m
+ [m
+[31m-if __name__ == '__main__':[m
+[32m+[m[32mif __name__ == "__main__":[m
+     calculate()[m

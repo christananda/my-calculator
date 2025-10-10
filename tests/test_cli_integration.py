@@ -45,7 +45,7 @@ class TestCLIIntegration:
         # call subtract with only one operand; CLI should exit with non-zero and print an error
         result = self.run_cli("subtract", "5")
         assert result.returncode == 1
-        # CLI prints a generic unexpected error message for this case
+        # CLI prints a specific error message for this case
         assert result.stdout.strip().startswith(
             "Error: Second operand required for subtraction"
         )
