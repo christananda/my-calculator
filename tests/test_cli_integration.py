@@ -6,20 +6,13 @@ import subprocess
 import sys
 import pytest
 
-<<<<<<< HEAD
 
-=======
->>>>>>> ccbf07a369a176b406e2bfd98352d33541912bcc
 class TestCLIIntegration:
     """Test CLI application integrating with calculator module"""
 
     def run_cli(self, *args):
         """Helper method to run CLI and capture output"""
-<<<<<<< HEAD
         cmd = [sys.executable, "src/cli.py"] + list(args)
-=======
-        cmd = [sys.executable, "src/CLI.py"] + list(args)
->>>>>>> ccbf07a369a176b406e2bfd98352d33541912bcc
         result = subprocess.run(cmd, capture_output=True, text=True, cwd=".")
         return result
 
@@ -35,32 +28,16 @@ class TestCLIIntegration:
         assert result.returncode == 0
         assert result.stdout.strip() == "2"
 
-<<<<<<< HEAD
-=======
-    def test_cli_subtract_missing_operand_error(self):
-        """Test CLI handles missing operand for subtraction gracefully"""
-        result = self.run_cli("subtract", "5")
-        assert result.returncode == 1
-        assert result.stdout.strip().startswith("Error:")
-
->>>>>>> ccbf07a369a176b406e2bfd98352d33541912bcc
     def test_cli_multiply_integration(self):
         """Test CLI can perform multiplication"""
         result = self.run_cli("multiply", "5", "3")
         assert result.returncode == 0
-<<<<<<< HEAD
         assert result.stdout.strip() == "15"
-=======
-        # get last line, which should be the result
-        last_line = result.stdout.strip().splitlines()[-1]
-        assert last_line == "15"
->>>>>>> ccbf07a369a176b406e2bfd98352d33541912bcc
 
     def test_cli_divide_integration(self):
         """Test CLI can perform division"""
         result = self.run_cli("divide", "5", "3")
         assert result.returncode == 0
-<<<<<<< HEAD
         assert result.stdout.strip() == "1.67"
 
     def test_cli_subtract_missing_operand_error(self):
@@ -70,7 +47,3 @@ class TestCLIIntegration:
         assert result.returncode == 1
         # CLI prints a generic unexpected error message for this case
         assert result.stdout.strip().startswith("Unexpected error:")
-=======
-        last_line = result.stdout.strip().splitlines()[-1]
-        assert last_line == "1.67"
->>>>>>> ccbf07a369a176b406e2bfd98352d33541912bcc
